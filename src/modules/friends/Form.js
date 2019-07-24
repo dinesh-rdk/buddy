@@ -1,35 +1,45 @@
 import React from 'react';
-import Input from './Input';
+import { Formik } from 'formik';
+import { userSchema } from '../../data/schema';
+import TextField from './Input';
+import { getTimestamp } from '../../utils/time';
 
-export default class Form extends React.Component {
-  state = {
-    name: this.props.name || '',
-    phone: this.props.phone || '',
-    email: this.props.email || '',
-    work: this.props.work || '',
-    city: this.props.city || '',
-  };
-
-  onChange = (title, value) => {
-    this.setState({ [title]: value });
-  };
-
-  onSubmit = event => {
-    event.preventDefault();
-    this.props.onSubmit(this.state);
-  };
-
-  render() {
-    const { name, phone, email, work, city } = this.state;
-    return (
-      <form onSubmit={event => this.onSubmit(event)}>
-        <Input title="name" value={name} onChange={this.onChange} />
-        <Input title="phone" value={phone} onChange={this.onChange} />
-        <Input title="email" value={email} onChange={this.onChange} />
-        <Input title="work" value={work} onChange={this.onChange} />
-        <Input title="city" value={city} onChange={this.onChange} />
-        <button className="btn btn-primary">Submit</button>
+export default ({
+  name = '',
+  phone = '',
+  email = '',
+  work = '',
+  city = '',
+  onSubmit,
+  id,
+}) => (
+  <Formik
+    initialValues={{ name, phone, email, work, city }}
+    validationSchema={userSchema}
+    onSubmit={(values, actions) => {
+      onSubmit({ ...values, id: id || getTimestamp() });
+    }}
+  >
+    {props => (
+      <form onSubmit={props.handleSubmit}>
+        {Object.keys(props.values).map(key => (
+          <TextField
+            key={key}
+            title={key}
+            value={props.values[key]}
+            onChange={props.handleChange}
+            error={props.errors[key]}
+            touched={props.touched[key]}
+          />
+        ))}
+        <button
+          type="submit"
+          disabled={props.isSubmitting}
+          className="btn btn-primary"
+        >
+          Submit
+        </button>
       </form>
-    );
-  }
-}
+    )}
+  </Formik>
+);

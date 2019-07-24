@@ -1,5 +1,4 @@
 import React, { Fragment, PureComponent } from 'react';
-import { friendDummy } from '../../data/dummy';
 import { connect } from 'react-redux';
 import { putFriend } from './actions';
 import Form from './Form';
@@ -9,7 +8,7 @@ class New extends PureComponent {
     return (
       <Fragment>
         <h2>New Friend</h2>
-        <Form {...friendDummy} onSubmit={this.props.putFriend} />
+        <Form onSubmit={this.props.putFriend} />
       </Fragment>
     );
   }
