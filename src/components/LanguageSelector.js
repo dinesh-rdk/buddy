@@ -9,5 +9,6 @@ export default () => (
   >
     <option value="en">English</option>
     <option value="fr">French</option>
+    <option value="pl">French</option>
   </select>
 );
