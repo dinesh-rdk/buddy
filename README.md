@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e3f4de06-4eb4-4cc9-b66a-348beffee2a7/deploy-status)](https://app.netlify.com/sites/gracious-sinoussi-061f5c/deploys)
+
 # Buddy
 
 The Buddy App.
@@ -168,3 +170,6 @@ For testing in editor, go [here](https://github.com/facebook/create-react-app/bl
   ```
 
 ## Deployment
+
+Deployed using [Netlify](https://www.netlify.com/)
+See https://www.netlify.com/blog/2016/07/22/deploy-react-apps-in-less-than-30-seconds/ for more details.
