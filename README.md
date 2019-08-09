@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c9707047fc764ddd88740adf59e5b616)](https://app.codacy.com/app/dinesh-rdk/buddy?utm_source=github.com&utm_medium=referral&utm_content=dinesh-rdk/buddy&utm_campaign=Badge_Grade_Settings)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e3f4de06-4eb4-4cc9-b66a-348beffee2a7/deploy-status)](https://app.netlify.com/sites/gracious-sinoussi-061f5c/deploys)
 
 # Buddy
